@@ -13,13 +13,8 @@ public class Controller {
     public TextField resultlabelC;
 
     @FXML
-
-
-
-        protected void SubmitButton (ActionEvent event) {
+    protected void SubmitButton(ActionEvent event) {
         try {
-
-
             Double a = Double.parseDouble(resultlabelA.getText());
             Double b = Double.parseDouble(resultlabelB.getText());
             Double c = Double.parseDouble(resultlabelC.getText());
@@ -33,13 +28,9 @@ public class Controller {
             } else {
                 resultlabel.setText("Ошибка. Обратитесь к админу");
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog (null, "Введено какое-то ужасное значение");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
             System.exit(0);
-                    }
-
-
+        }
     }
-
 }
