@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.util.logging.*;
 
 public class Controller {
     @FXML
@@ -12,9 +14,13 @@ public class Controller {
     public TextField resultlabelB;
     public TextField resultlabelC;
 
+    Logger logger = Logger.getLogger(Controller.class.getName());
+
     @FXML
     protected void SubmitButton(ActionEvent event) {
         try {
+            FileHandler fh = new FileHandler("Main.txt");
+            logger.addHandler(fh);
             Double a = Double.parseDouble(resultlabelA.getText());
             Double b = Double.parseDouble(resultlabelB.getText());
             Double c = Double.parseDouble(resultlabelC.getText());
@@ -28,9 +34,20 @@ public class Controller {
             } else {
                 resultlabel.setText("Ошибка. Обратитесь к админу");
             }
+
+            logger.setLevel(Level.ALL);
+            logger.info("Start logging");
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
+            logger.log(Level.SEVERE, e.getMessage().toString(),e);
             System.exit(0);
+
         }
+        catch (IOException e) {
+            logger.log(Level.SEVERE, e.getMessage().toString(),e);
+        }
+        logger.fine("Exception logged");
     }
-}
+    }
+
