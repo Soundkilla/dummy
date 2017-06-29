@@ -15,7 +15,7 @@ public class Controller {
     public TextField resultlabelB;
     public TextField resultlabelC;
 
-    Logger logger = Logger.getLogger(Controller.class.getName());
+    private Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     protected void SubmitButton(ActionEvent event) {
@@ -41,7 +41,6 @@ public class Controller {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
-
             logger.log(Level.SEVERE, Arrays.toString(e.getStackTrace()),e);
             System.exit(0);
 
