@@ -30,7 +30,7 @@ public class Controller {
                     resultlabel.setText("Не тупоугольный");
                 }
             } else {
-                resultlabel.setText("Ошибка. Обратитесь к админу");
+                resultlabel.setText("Произошла ошибка");
             }
 
             logger.setLevel(Level.ALL);
@@ -55,7 +55,7 @@ public class Controller {
     }
     @FXML
     protected void CloseMenuPressed(ActionEvent event) {
-        System.exit(0);
+        resultlabel.setText("Close.error");
     }
     @FXML
     protected void AboutMenuPressed(ActionEvent event) {
