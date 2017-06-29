@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.*;
 
 public class Controller {
@@ -40,12 +41,13 @@ public class Controller {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
-            logger.log(Level.SEVERE, e.getMessage(),e);
+
+            logger.log(Level.SEVERE, Arrays.toString(e.getStackTrace()),e);
             System.exit(0);
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, e.getMessage(),e);
+            logger.log(Level.SEVERE,  Arrays.toString(e.getStackTrace()),e);
         }
         logger.fine("Exception logged");
     }
