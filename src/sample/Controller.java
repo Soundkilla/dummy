@@ -40,12 +40,12 @@ public class Controller {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
-            logger.log(Level.SEVERE, e.getMessage().toString(),e);
+            logger.log(Level.SEVERE, e.getMessage(),e);
             System.exit(0);
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, e.getMessage().toString(),e);
+            logger.log(Level.SEVERE, e.getMessage(),e);
         }
         logger.fine("Exception logged");
     }
