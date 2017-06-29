@@ -1,9 +1,7 @@
 package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javax.swing.JOptionPane;
+import javafx.scene.control.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.*;
@@ -14,7 +12,6 @@ public class Controller {
     public TextField resultlabelA;
     public TextField resultlabelB;
     public TextField resultlabelC;
-
     private Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
@@ -40,7 +37,13 @@ public class Controller {
             logger.info("Start logging");
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "java.lang.NumberFormatException");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Произошла непредвиденная ошибка");
+            TextArea textArea = new TextArea(Arrays.toString(e.getStackTrace()));
+            textArea.setWrapText(true);
+            alert.getDialogPane().setExpandableContent(textArea);
+            alert.showAndWait();
             logger.log(Level.SEVERE, Arrays.toString(e.getStackTrace()),e);
             System.exit(0);
 
@@ -49,6 +52,18 @@ public class Controller {
             logger.log(Level.SEVERE,  Arrays.toString(e.getStackTrace()),e);
         }
         logger.fine("Exception logged");
+    }
+    @FXML
+    protected void CloseMenuPressed(ActionEvent event) {
+        System.exit(0);
+    }
+    @FXML
+    protected void AboutMenuPressed(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("О программе");
+        alert.setHeaderText("Описание функционала программы");
+        alert.setContentText("Программа предназначена для определния типа треугольника" + "\n" + "Определяет треугольник как тупоугольный, или как не тупоугольный.");
+        alert.showAndWait();
     }
     }
 
