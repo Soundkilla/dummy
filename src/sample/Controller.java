@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -57,7 +56,7 @@ public class Controller {
         resultlabel.setText("Close.error");
     }
     @FXML
-    protected void AboutMenuPressed(ActionEvent event) {
+    protected void AboutMenuPressed() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("О программе");
         alert.setHeaderText("Описание функционала программы");
