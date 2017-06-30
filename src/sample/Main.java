@@ -13,6 +13,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Dat triangle");
         primaryStage.setScene(new Scene(root, 370, 160));
+        primaryStage.setMinWidth(370);
+        primaryStage.setMinHeight(160);
+        primaryStage.setResizable(false); //запрещаем растягивать окно
         primaryStage.show();
     }
 
